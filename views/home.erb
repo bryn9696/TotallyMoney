@@ -1,39 +1,72 @@
-<%= @name %>
+<h1> Hello, <%= @name %>! These are your card options</h1>
 
 <br>
-<br>
-  <% if 2>1 %>  
+  <% if 2>1 %>
   <div id ='anywhere'>
-    <%= @anywherecard[0] %>
-  <form>
-    <input type="checkbox" id="anywhere_card" name="anywhere_card" value="anywhere_card_clicked">
+    <h3><%= @anywherecard[0]%></h3>
+    <% @anywherecard[1].split(' - ').each do |line| %>
+      <div id='container'>
+        <%= line %>
+      </div>
+    <%end%>
+  <form action="/user_choice" method="post">
+    <input type="checkbox" name="anywhere_card" id="ACselected" value="yes">
     <label for="anywherecard">Anywhere Card</label>
+    <input type="submit" value="Submit">
   </form>
   </div>
   <%end%>
-  <br>
   <br>
   <% if @employment_status == 'student' %>
   <div id = 'student'>
-    <%=@studentlife[0]%>
-  <form>
-    <input type="checkbox" id="student_life" name="student_life" value="student_life_clicked">
+  <h3><%= @studentlife[0]%></h3>
+  <% @studentlife[1].split(' - ').each do |line| %>
+    <div id='container'>
+      <%= line %>
+    </div>
+  <%end%>
+  <form action="/user_choice" method="post">
+    <input type="checkbox" name="student_life" id="SLselected" value="yes">
     <label for="studentlife">Student Life</label>
+    <input type="submit" value="Submit">
   </form>
   </div>
   <%end%>
   <br>
-  <br>
   <% if @earnings >= 16000%>
   <div id='liquid'>
-    <%= @liquidcard[0] %>
-  <form>
-    <input type="checkbox" id="liquid_card" name="liquid_card" value="liquid_card_clicked">
+  <h3><%= @liquidcard[0]%></h3>
+  <% @liquidcard[1].split(' - ').each do |line| %>
+    <div id='container'>
+      <%= line %>
+    </div>
+  <%end%>
+  <form action="/user_choice" method="post">
+    <input type="checkbox" name="liquid_card" id="LCselected" value="yes">
     <label for="liquidcard">Liquid Card</label>
+    <input type="submit" value="Submit">
   </form>
   </div>
   <% end%>
   <br>
-  <br>
+  <% if @employment_status == 'student' && @earnings >= 16000%>
   <div id = 'total'>
-    <%= @total += 300 + @studentlife[1] + @liquidcard[1] %>
+  <h4>Credit for Anywhere Card, Student Life and Liquid Card is: </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] + @liquidcard[2] - @total%></h2>
+  <%end%>
+  </div>
+  <% if @employment_status == 'student'%>
+  <div id = 'total'>
+  <h4>Credit for Anywhere Card and Student Life is: </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] -@total%></h2>
+  <%end%>
+  </div>
+  <% if @earnings >= 16000%>
+  <div id = 'total'>
+   <h4>Credit for Anywhere Card and Liquid Card is: </h4><h2>£<%= @total += @anywherecard[2] + @liquidcard[2] -@total%></h2>
+  <%end%>
+  </div>
+  <% if 2>1%>
+  <div id = 'total'>
+   <h4>Credit for Anywhere Card is: </h4><h2>£<%= @total += @anywherecard[2] - @total%></h2>
+  <%end%>
+  </div>
+
