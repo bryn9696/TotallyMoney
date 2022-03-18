@@ -9,6 +9,7 @@ When multiple cards are selected, the total amount of credit available to the us
 
 # Set Up
 run bundle install
+
 run rackup
 
 rackup opens localhost:9292 in your local browser where the web app can be used
