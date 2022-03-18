@@ -31,7 +31,7 @@ class TotallyMoney < Sinatra::Base
     @name = session[:name]
     @employment_status = session[:employment_status]
     @earning = session[:earnings]
-    @earnings = @earning.to_i
+    @earnings = @earning.delete('£').to_i
     @total = 0
     @selected_total = 0
     @liquidcard = Cards.new.liquidcard

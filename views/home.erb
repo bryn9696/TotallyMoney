@@ -62,20 +62,20 @@
   </form>
   </div>
   <% end%>
-  <br>
+  
   <% if @employment_status == 'student' && @earnings >= 16000%>
   <div id = 'total'>
-  <h4>Credit for Anywhere Card, Student Life and Liquid Card is: </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] + @liquidcard[2] - @total%></h2>
+  <h4>Credit for Anywhere Card, Student Life and Liquid Card is:  </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] + @liquidcard[2] - @total%></h2>
   <%end%>
   </div>
   <% if @employment_status == 'student'%>
   <div id = 'total'>
-  <h4>Credit for Anywhere Card and Student Life is: </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] -@total%></h2>
+  <h4>Credit for Anywhere Card and Student Life is:  </h4><h2>£<%= @total += @anywherecard[2] + @studentlife[2] -@total%></h2>
   <%end%>
   </div>
   <% if @earnings >= 16000%>
   <div id = 'total'>
-   <h4>Credit for Anywhere Card and Liquid Card is: </h4><h2>£<%= @total += @anywherecard[2] + @liquidcard[2] -@total%></h2>
+   <h4>Credit for Anywhere Card and Liquid Card is:  </h4><h2>£<%= @total += @anywherecard[2] + @liquidcard[2] -@total%></h2>
   <%end%>
   </div>
   <% if 2>1%>
