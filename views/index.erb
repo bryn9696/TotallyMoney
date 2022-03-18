@@ -1,7 +1,14 @@
+<!DOCTYPE html>
+<head> 
+  <link href="<%= url('/index.css') %>" rel="stylesheet" type="text/css" />
+</head>
 <body>
-  <h1>Totally Money</h1>
-  <h2>User Details Form</h2>
-
+<%#header%>
+<header id='top-bar'>
+    <h1>Totally Money</h1>
+</header>
+<h2>User Details Form</h2>
+<%# form container %>
   <div id='form-container'>
   <form action="/user_details" method="post">
     <input type="text" name="name" placeholder="name" id='name'>

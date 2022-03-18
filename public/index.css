@@ -1,0 +1,22 @@
+#top-bar {
+  background-color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: blue;
+  font-size: 2rem;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: blue;
+}
+
+#form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
