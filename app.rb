@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/reloader'
+require './lib/cards'
 
 class TotallyMoney < Sinatra::Base
   configure :development do
@@ -21,16 +22,21 @@ class TotallyMoney < Sinatra::Base
     session[:earnings] = params[:earnings]
     session[:postcode] = params[:postcode]
     session[:house_number] = params[:house_number]
-    # @studentlife = Studentlife.valid?(session[:employment_status])
     redirect '/home'
   end
 
   get '/home' do
     @name = session[:name]
     @employment_status = session[:employment_status]
-    @earnings = session[:earnings]
-    @studentlife = Cards.new.studentLife(@employment_status)
+    @earning = session[:earnings]
+    @earnings = @earning.to_i
+    @total = 0
+    @liquidcard = Cards.new.liquidcard
+    @studentlife = Cards.new.studentlife
+    @anywherecard = Cards.new.anywherecard
     erb :home
   end
+
+
 
 end

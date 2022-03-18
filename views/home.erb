@@ -1,26 +1,23 @@
 <%= @name %>
-<%= @employment_status %>
-<%= @earnings %>
-
 
 <br>
 <br>
-  <%= p "Anywhere Card
-    Apr: 33.9%
-    Balance Transfer Offer Duration: 0 months
-    Purchase Offer Duration: 0 Months
-    Credit Available: £300" %>
+  <% if 2>1 %>  
+  <div id ='anywhere'>
+    <%= @anywherecard[0] %>
   <form>
-    <input type="checkbox" id="anywhere_card" name="anywhere_card" value="anywhere_card">
+    <input type="checkbox" id="anywhere_card" name="anywhere_card" value="anywhere_card_clicked">
     <label for="anywherecard">Anywhere Card</label>
   </form>
+  </div>
+  <%end%>
   <br>
   <br>
   <% if @employment_status == 'student' %>
   <div id = 'student'>
     <%=@studentlife[0]%>
   <form>
-    <input type="checkbox" id="student_life" name="student_life" value="student_life">
+    <input type="checkbox" id="student_life" name="student_life" value="student_life_clicked">
     <label for="studentlife">Student Life</label>
   </form>
   </div>
@@ -31,8 +28,12 @@
   <div id='liquid'>
     <%= @liquidcard[0] %>
   <form>
-    <input type="checkbox" id="liquid_card" name="liquid_card" value="liquid_card">
+    <input type="checkbox" id="liquid_card" name="liquid_card" value="liquid_card_clicked">
     <label for="liquidcard">Liquid Card</label>
   </form>
   </div>
   <% end%>
+  <br>
+  <br>
+  <div id = 'total'>
+    <%= @total += 300 + @studentlife[1] + @liquidcard[1] %>
