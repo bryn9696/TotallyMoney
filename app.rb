@@ -21,11 +21,15 @@ class TotallyMoney < Sinatra::Base
     session[:earnings] = params[:earnings]
     session[:postcode] = params[:postcode]
     session[:house_number] = params[:house_number]
+    # @studentlife = Studentlife.valid?(session[:employment_status])
     redirect '/home'
   end
 
   get '/home' do
     @name = session[:name]
+    @employment_status = session[:employment_status]
+    @earnings = session[:earnings]
+    @studentlife = Cards.new.studentLife(@employment_status)
     erb :home
   end
 
